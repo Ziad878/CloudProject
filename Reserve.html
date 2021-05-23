@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>Car Rental</title>
+        <script>
+            function validate(){
+                var msg="";
+                if(document.getElementById('name').value=="")
+                    msg = "Select a name\n";
+
+                if(document.getElementById('Phone').value=="")
+                    msg += "The phone number is required\n";
+
+                if(document.getElementById('car').value=="")
+                msg += "Select a car\n";
+
+                if(document.getElementById('nbDays').value=="")
+                    msg += "The  number of days is required\n";
+
+                    if(document.getElementById('Address').value=="")
+                    msg += "The Address is required\n";
+
+                if(msg !=""){
+                    alert(msg);
+                    return false;
+
+                }
+                return true;        
+            }
+
+            function calculate(){
+                var dailyPrice, totalPrice, nbDays;
+                if(validate()){
+                    if(document.getElementById('car').value=="Peogeot 107")
+                        dailyPrice=70;
+
+                    if(document.getElementById('car').value=="Peogeot 308")
+                        dailyPrice=150;
+
+                    if(document.getElementById('car').value=="BMW 323")
+                        dailyPrice=100;
+                    
+                    if(document.getElementById('car').value=="Mercedes 500")
+                     dailyPrice=200;
+
+                    nbDays=document.getElementById('nbDays').value;
+
+                    totalPrice=dailyPrice * nbDays;
+
+                    document.getElementById('car').value =dailyPrice;
+
+                    document.getElementById('Price').value =totalPrice;
+
+
+                    
+                }
+
+            }
+    
+
+        </script>
+    </head>
+    <body>
+       
+        <form name="frm">
+            <table widht=40% border=0 cellpadding=0 cellspacing=0 align=left>
+                <tr>
+                    <td bgcolor= #643296 width=30% height=100 >Car Rental</td>
+                    <td bgcolor= #643296 width=20% height=100> Home </td>
+                    <td bgcolor= #643296 width=20% height=100> Car </td>
+                    <td bgcolor= #643296 width=20% height=100> Location </td>
+                    <td bgcolor= #643296 width=20% height=100> About </td>
+                    <td bgcolor= #643296 width=20% height=100> Contact </td>
+                </tr>
+               
+                <table>
+                    <tr>
+                        <td align=Right>Name</td>
+                        <td align=left> <input type="text" size=20 name="name" id="name"> </td>
+                    </tr>
+                    <tr>
+                        <td align=Right>Phone</td>
+                        <td align=left> <input type="text" size=20 name="Phone" id="Phone"> </td>
+                    </tr>
+                    <tr>
+                        <td align=Right>Car </td>
+                        <td align=left><select name="car" id="car">
+                            <option></option>
+                            <option>Peogeot 107</option>
+                            <option>Peogeot 308</option>
+                            <option>BMW 323</option>
+                            <option>Mercedes 500</option>
+
+                        </select> 
+                    </td>
+                    </tr>
+                    <tr>
+                    
+                     <td align=Right>Nb of Days</td>
+                     <td align=left> <input type="text" size=20 name="nbDays" id="nbDays"> </td>
+                        
+                    </tr>
+                    <tr>
+                        <td align=Right>Address</td>
+                        <td align=left> <input type="text" size=20 name="Address" id="Address"> </td>
+                    </tr>
+                    <tr>
+                        <td align=Right>Total Price</td>
+                        <td align=left> <input type="text" size=20 name="Price" id="Price"> </td>
+                    </tr>
+                    <tr>
+                      
+                            <td align=Center><input type=button value="Calculate" id="bt_calculate" name="bt_calculate" onclick="calculate();"></td>
+                            <td align=Center><input type=button value="reset" id="bt_Reset" name="Reset" onclick="reset()"></td>  
+                        
+                    </tr>
+                </table>
+    </body>
+</html>
